@@ -1,0 +1,120 @@
+TUTORIAL DE CONFIGURAÇÃO DO SERVIDOR DE BANCO DE DADOS MONGO DB + IDE VIRTUAL REMOTA(GITPOD):
+
+-Esse tutorial explica como configurar o ambiente de programação para se desenvolver uma aplicação simples com um banco de dados NO SQL. será usado o gitpod versão free (50 horas por mês de uso)
+
+Requisitos Necessários:
+-ABRIR  CONTA NO GITHUB.COM
+-ABRIR CONTA NO CLOUD.MONGODB.COM (PODE SER VINCULADO COM O GOOGLE)
+-ABRIR CONTA NO GITPOD.IO
+
+
+A) ETAPA MONGO DB
+    1) Abrir o cloud.mongodb.com e se já tiver uma conta lá(eu fiz a conta com o google) ir no ícone projects no menu lateral esquerdo da tela. Na primeira vez será necessário 1.1)criar  e 1.2) configurar um cluster
+
+        1.1) Criando o cluster
+
+            -Ir em new project
+            -Na tela create project dar o nome do projeto
+            -Em seguida será a opção de convidar outros desenvolvedores (se não tiver mais membros pode ignorar essa etapa) clicar em create project
+
+        1.2)Configurando o cluster
+
+            -Após criado o cluster e antes de clicar em montar o banco de dados (build a database), ir na opção add current ip adress que fica do lado da mensagem de alerta sobre o mesmo. Ele automaticamente vai adicionar o seu IP atual, contudo, como vamos nos conectar a uma IDE virutal que utiliza outros IPS dinâmicos temos que clicar em visit a network acess para modificar as autorizações de IP's
+
+            -Um pop up vai aparecer informando que restam dois passos para concluir a configuração. Minimizar ele e continuar configurando a tela de network access
+
+            -No item ip adress clicar em delete o ip que está criado e em seguida clicar em add ip adress e selecionar  allow acess from anywere. (ele vai adicionar um endereço 0.0.0/0).Depois clicar em confirm
+
+            -Clicar no nome em azul do seu projeto que fica no caminho SeuNome's ORG-data da ciração>nome do projeto e ir em build a database.
+
+            -Escolher a terceira opção: FREE( se desejar marcar a opção add sample data que vai ajudar a fazer alguns testes de conexão mais a frente) e em seguida create.
+
+            -Na pagina de create a shared cluster as opções já estarão marcadas a confirmar: Free shared. Em cloud provider & Region (pode ser aws) e escolher o servidor mais proximo (no caso é São Paulo) em seguida clicar em create cluster
+
+            -A proxima aba é security quickstart voce deve escolher a opção username and password e embaixo colocar o username do seu banco e o password(qualquer senha simples pois ela ficará visível!) (guardar esses dados pois ambos serão requisitados na string conection mais a frente) depois disso ir em create user e rolar ate o final da pagina e clicar em finish and close
+
+            -Depois de criado o database é só dar ok e ver o database. você agora tem um servidor de dados na nuvem onde, munido do  login e senha, a IDE virtual se conectará com ele. 
+            
+            -Aguardar o mongo carregar o sample dataset
+
+            -Em seguida realizar a conexão do banco clicando em connect-> connect your application
+
+            -Escolher em driver a linguagem de programação(no nosso caso é python) e a versão( pdoe ser a mais recente)
+
+            -Copiar a string de conexão gerada e clicar e close
+
+            -Abrir a IDE Remota no gitpod
+
+
+B) ETAPA DE CONEXÃO DO REPOSITÓRIO DO GITHUB COM A IDE REMOTA(GITPOD)
+        -No github, criar um novo repositorio e copiar o link dele.
+
+        -Entrar no site gitpod.io e criar uma conta( acessar como github e permitir o acesso do gitpod ao github)
+        -Ainda no gitpod entrar no menu workspaces (se já estiver nele, clicar em new workspace).
+
+        -No repositorio do github copiar o link do mesmo e colar na aba de repostiorios do gitpod que o encontrará e em seguida clicar em criar workspace.
+
+        -Se quiser utilizar no vscode nativo do pc selecionar sim na janela que vai aparecer perguntando se quer usar no vscode. se desejar usar a IDE virtual ou não estiver como vs code instalado, clicar em cancelar.
+
+        -Na aba more options da pagina do gitpod, clicar na setinha ao lado do nome e escolher abrir no navegador (ou browser).
+
+        -A IDE virutal abirirá numa nova guia
+
+        -No terminal que já é configurado em linux clicar o comando de instalar o pymongo: pip install pymongo e apertar enter
+        A mensagem de instalado com sucesso vai aparecer.(sempre que se criar um template novo será necessária essa etapa, talvez tenha como já pré-configurar um template)
+
+C) ETAPA DE CONEXÃO DA IDE REMOTA(GITPOD) COM O SERVIDOR MONGO
+
+        -Ainda na tela da IDE remota, no canto esquerdo da tela, clicar no desenho da folha (new file) e criar uma pagina de teste dando o nome a ela (ex: testeConexao.py ou pode ser já o seu main da aplicação)
+
+        -Ao criar o arquivo .py pela primeira vez, vai aparecer a mensagem de instalar algumas extensões do pyton você deve clicar em install (ou intall not sync in yor device)
+
+        -Nesse novo arquivo criado colar  a sua string de conexão que você guardou na etapa A no passo 1.2) e digitar os comandos abaixo:
+
+            import pymongo
+
+            client = pymongo.MongoClient("mongodb+srv://meuprojetomongo:<password>@cluster0.ynpyc9f.mongodb.net/?retryWrites=true&w=majority")
+
+            print("list_database_names: ", client.list_database_names())
+
+        LEMBRE-SE! 
+            -TROCAR A TAG <password> PELA SENHA QUE VOCÊ CRIOU (na hora de inserir a senha, colocar ela normal  sem < ou > ou aspas)
+            -DENTRO DO PARENTESES E DAS ASPPAS DEVE ESTAR A SUA STRING DE CONEXÃO
+
+        -colocar pra rodar o codigo (o play no canto superior direito da tela)
+
+        -O codigo dará um erro pois está faltando instalar uma extensão na penultima linha do erro(no terminal) o proprio pycharm dá o comando necessário para instalar essa extensão:
+
+        -python -m pip install "pymongo[srv]"
+        -É só copiar ela lá ou ou aqui e colar na ultima linha e dar enter (vai ser pedido uma permissão para colar o código  é só clicar em aceitar).
+
+        -É só rodar o código novamente e aí vai aparecer uma lista com varios documentos dentro (os samples que foram add no passo de configuração do cluster).
+
+D) ENVIANDO AS ALTERAÇÕES E CRIAÇÕES PARA O GITHUB
+    1) Dar os comandos gits abaixo no terminal do gitpod e verificar após cada uma se tudo está conforme o esperado
+        -git status
+        -git add .
+        -git commit
+        -Colocar o nome do commit lá na linha 1 da nova aba de commit que vai abrir e depos dar um ctrl +s e depois fechar essa aba( o terminal irá indicar x files changed, y insertions)
+        -git push
+        -git log
+
+    2)!!!ATENÇÃO!!! ESTA PRÓXIMA ETAPA PRECISA SER FEITA POIS SE A IDE NÃO FOR DERRUBADA SUAS 50 HORAS FREE/MÊS VÃO EMBORA LOGO
+        -clicar no ícone de  menu (o sanduiche no superior esquerdo da tela e ir em  gitpod:stop workspace)
+
+    3) Abrir no seu navegador sua pagina do github e atualizar o repositório para verificar se está tudo foi devidamente enviado para a nuvem.
+
+
+EXTRAS:
+    links uteis
+    comandos git
+        https://gist.github.com/leocomelli/2545add34e4fec21ec16
+    aprendendo no sql
+        https://www.w3schools.com/python/python_mongodb_create_db.asp
+
+    usando o tk inter para interface grafica
+	https://www.youtube.com/watch?v=aC8OVWzsWqE
+	 o video ensina a instalar o tkinter
+		sudo apt-get install python3-tk se não funcionar:
+		brew install python-tk
+	brew install python-tk
