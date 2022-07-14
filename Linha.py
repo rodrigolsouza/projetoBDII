@@ -1,12 +1,10 @@
+from LinhaDao import *
+
+
 class Linha:
-    def __init__(self,codigo,nome,tarifa,frota,integração,arCondicionado):
-        self.codigo= codigo
-        self.nome= nome
-        self.tarifa= tarifa
-        self.frota= frota
-        self.integraçao=integração
-        self.arCondicionado=arCondicionado
-    
+    def __init__(self):
+        pass
+
     def get_codigo(self):
         return self.__codigo
 
@@ -53,3 +51,27 @@ class Linha:
 
     def set_ar_condicionado(self, value):
         self.__arCondicionado = value
+
+
+    def inserirLinha(self):
+        print("Digite os seguintes dados da Linha de Ônibus: ")
+        linha=Linha()
+
+        codigo=input("CODIGO:")
+        linha.set_codigo(codigo)
+
+        nome=input("NOME:")
+        linha.set_nome(nome)
+
+        tarifa=input("TARIFA ")
+        linha.set_tarifa(tarifa)
+
+        frota=input("FROTA: ")
+        linha.set_frota(frota)
+
+        integração=("INTEGRAÇÃO? ")
+        linha.set_integraçao(integração)
+
+        arCondicionado=("ARCONDICIONADO? ")
+        linha.set_ar_condicionado(arCondicionado)
+        LinhaDao.inserir(linha)
