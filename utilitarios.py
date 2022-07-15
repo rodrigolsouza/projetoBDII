@@ -1,7 +1,7 @@
-from Linha import *
-from Empresa import *
+from linha import *
 
-class showMenu:
+
+class ShowMenu:
     def __init__(self):
         self.linha=Linha()
 

@@ -1,6 +1,6 @@
 import pymongo
 
-class conexao:
+class Conexao:
     def __init__(self):
        
         self.cliente=None

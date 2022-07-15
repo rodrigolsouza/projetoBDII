@@ -1,11 +1,12 @@
 
-from conexao import *
+from conexao import Conexao
 from utilitarios import *
 
 #Conexão com o banco de dados
+conexao = Conexao()
 conexao.conectar()
 
 #Exibição do Menu de atividades operacionais
-showMenu.menu_inicial()
-showMenu.exibir_menu_inicial()
+ShowMenu.menu_inicial()
+ShowMenu.exibir_menu_inicial()
 

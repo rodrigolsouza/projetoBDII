@@ -1,6 +1,6 @@
 
 from conexao import *
-from Linha import Linha
+#from linha import Linha
 
 class LinhaDao():
     def __init__(self):

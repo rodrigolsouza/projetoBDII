@@ -1,4 +1,4 @@
-from LinhaDao import *
+from linhaDao import LinhaDao
 
 
 class Linha:
@@ -74,4 +74,4 @@ class Linha:
 
         arCondicionado=("ARCONDICIONADO? ")
         linha.set_ar_condicionado(arCondicionado)
-        LinhaDao.inserir(linha)
+        linha.inserir(linha)
