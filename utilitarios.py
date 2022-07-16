@@ -1,4 +1,6 @@
 
+from linhaView import LinhaView
+
 def menu_inicial():
     print("\n")
     print("---------MENU-----------")
@@ -69,7 +71,7 @@ def exibir_menu_Linhas():
         try:
             opção=int(input("Digite sua escolha:\n"))
             if opção==1:
-                Linha.inserir()
+                LinhaView.inserirLinha()
             elif opção==2:
                 Linha.consultar()
             elif opção==3:
