@@ -1,5 +1,5 @@
 import pymongo
-
+import time
 #Declaração das constantes necessárias na conexão
 STRING_DE_CONEXAO="mongodb+srv://admin:admin@cluster0.ynpyc9f.mongodb.net/?retryWrites=true&w=majority"
 BASE_DE_DADOS="Gestao_transportes"
@@ -12,9 +12,13 @@ colecaoLinhas=bancoDeDados[COLECAO_LINHAS]
 
 
 def conectar():
+    print("Conectando com o servidor...\n")
+    time.sleep(1)
     try:
         cliente
+        print("Conectado com sucesso! \n")
         #Teste para comprovar que o cluster está funcionando
+        time.sleep(1)
         print("list_database_names: ", cliente.list_database_names())
         
     #Mensagem de erro caso a conexão falhe

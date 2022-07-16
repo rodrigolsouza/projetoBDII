@@ -4,7 +4,7 @@ class LinhaDao():
         pass
     
     def inserirBanco(self,linhaView):
-        print("A INSERIR")
+        print("A INSERIR...")
     def consultar(self):
         pass
     def alterar(self):

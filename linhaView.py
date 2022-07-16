@@ -1,5 +1,7 @@
+import time
 from linha import Linha
-from linhaDao import LinhaDao
+from LinhaDao import LinhaDao
+
 
 class LinhaView:
     def __init__(self):
@@ -16,4 +18,6 @@ class LinhaView:
         linha= Linha(codigo,nome,tarifa,frota,integração,arCondicionado)
         linhaDao=LinhaDao()
         linhaDao.inserirBanco(linha)
+        print("\n")
+        time.sleep(1)
 
