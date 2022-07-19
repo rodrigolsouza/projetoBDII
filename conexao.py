@@ -3,7 +3,7 @@ import time
 #Declaração das constantes necessárias na conexão
 STRING_DE_CONEXAO="mongodb+srv://admin:admin@cluster0.ynpyc9f.mongodb.net/?retryWrites=true&w=majority"
 BASE_DE_DADOS="Gestao_transportes"
-COLECAO_LINHAS="empresas"
+COLECAO_LINHAS="Linhas"
 
 #Realização da conexão com o servidor na nuvem e criação do banco e collection
 cliente = pymongo.MongoClient(STRING_DE_CONEXAO)

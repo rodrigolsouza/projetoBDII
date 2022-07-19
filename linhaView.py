@@ -1,6 +1,6 @@
 import time
 from linha import Linha
-from LinhaDao import LinhaDao
+from linhaDao import LinhaDao
 
 
 class LinhaView:
@@ -13,8 +13,8 @@ class LinhaView:
         nome=input("NOME: ")
         tarifa=input("TARIFA: ")
         frota=input("FROTA: ")
-        integração=input("INTEGRAÇÃO:")
-        arCondicionado=input("AR-CONDICIONADO: ")
+        integração=input("INTEGRAÇÃO? ")
+        arCondicionado=input("AR-CONDICIONADO? ")
         linha= Linha(codigo,nome,tarifa,frota,integração,arCondicionado)
         linhaDao=LinhaDao()
         linhaDao.inserirBanco(linha)
