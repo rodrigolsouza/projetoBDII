@@ -15,9 +15,14 @@ class LinhaView:
         frota=input("FROTA: ")
         integração=input("INTEGRAÇÃO? ")
         arCondicionado=input("AR-CONDICIONADO? ")
-        linha= Linha(codigo,nome,tarifa,frota,integração,arCondicionado)
-        linhaDao=LinhaDao()
-        linhaDao.inserirBanco(linha)
         print("\n")
-        time.sleep(1)
+
+        if len(codigo)!=0 and len(nome)!=0 and len(tarifa)!=0 and len(frota)!=0 and len(integração)!=0 and len(arCondicionado)!=0:
+            linha= Linha(codigo,nome,tarifa,frota,integração,arCondicionado)
+            linhaDao=LinhaDao()
+            linhaDao.inserirBanco(linha)
+            time.sleep(1)
+        else:
+            print("Todos os campos precisam ser preenchidos! Por favor refaça a operação.")
+            
 

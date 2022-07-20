@@ -1,55 +1,55 @@
 class Empresa:
     def __init__(self, cnpj, nome, inicioOperação, frotaTotal, contato, frotaArCondicionado):
-        self._cnpj = cnpj
-        self._nome = nome
-        self._inicioOperação = inicioOperação
-        self._frotaTotal = frotaTotal
-        self._contato = contato
-        self._frotaArCondicioado = frotaArCondicionado
+        self.Cnpj = cnpj
+        self.Nome = nome
+        self.InicioOperação = inicioOperação
+        self.FrotaTotal = frotaTotal
+        self.Contato = contato
+        self.FrotaArCondicioado = frotaArCondicionado
 
     def get_cnpj(self):
-        return self.__cnpj
+        return self.Cnpj
 
 
     def get_nome(self):
-        return self.__nome
+        return self.Nome
 
 
     def get_inicio_operação(self):
-        return self.__inicioOperação
+        return self.InicioOperação
 
 
     def get_frota_total(self):
-        return self.__frotaTotal
+        return self.FrotaTotal
 
 
     def get_contato(self):
-        return self.__contato
+        return self.Contato
 
 
     def get_frota_ar_condicioado(self):
-        return self.__frotaArCondicioado
+        return self.FrotaArCondicioado
 
 
     def set_cnpj(self, value):
-        self.__cnpj = value
+        self.Cnpj = value
 
 
     def set_nome(self, value):
-        self.__nome = value
+        self.Nome = value
 
 
     def set_inicio_operação(self, value):
-        self.__inicioOperação = value
+        self.InicioOperação = value
 
 
     def set_frota_total(self, value):
-        self.__frotaTotal = value
+        self.FrotaTotal = value
 
 
     def set_contato(self, value):
-        self.__contato = value
+        self.Contato = value
 
 
     def set_frota_ar_condicioado(self, value):
-        self.__frotaArCondicioado = value
+        self.FrotaArCondicioado = value

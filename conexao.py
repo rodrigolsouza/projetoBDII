@@ -4,11 +4,13 @@ import time
 STRING_DE_CONEXAO="mongodb+srv://admin:admin@cluster0.ynpyc9f.mongodb.net/?retryWrites=true&w=majority"
 BASE_DE_DADOS="Gestao_transportes"
 COLECAO_LINHAS="Linhas"
+COLECAO_EMPRESAS="Empresas"
 
 #Realização da conexão com o servidor na nuvem e criação do banco e collection
 cliente = pymongo.MongoClient(STRING_DE_CONEXAO)
 bancoDeDados=cliente[BASE_DE_DADOS]
 colecaoLinhas=bancoDeDados[COLECAO_LINHAS]
+colecaoEmpresas=bancoDeDados[COLECAO_EMPRESAS]
 
 
 def conectar():

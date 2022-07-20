@@ -8,48 +8,48 @@ class Linha:
         self.ArCondicionado=arCondicionado
     
     def get_codigo(self):
-        return self.__codigo
+        return self.Código
 
 
     def get_nome(self):
-        return self.__nome
+        return self.Nome
 
 
     def get_tarifa(self):
-        return self.__tarifa
+        return self.Tarifa
 
 
     def get_frota(self):
-        return self.__frota
+        return self.Frota
 
 
     def get_integraçao(self):
-        return self.__integraçao
+        return self.Integração
 
 
     def get_ar_condicionado(self):
-        return self.__arCondicionado
+        return self.ArCondicionado
 
 
     def set_codigo(self, value):
-        self.__codigo = value
+        self.Código = value
 
 
     def set_nome(self, value):
-        self.__nome = value
+        self.Nome = value
 
 
     def set_tarifa(self, value):
-        self.__tarifa = value
+        self.Tarifa = value
 
 
     def set_frota(self, value):
-        self.__frota = value
+        self.Frota = value
 
 
     def set_integraçao(self, value):
-        self.__integraçao = value
+        self.Integração = value
 
 
     def set_ar_condicionado(self, value):
-        self.__arCondicionado = value
+        self.ArCondicionado = value

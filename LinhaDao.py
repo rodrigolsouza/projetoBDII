@@ -10,8 +10,13 @@ class LinhaDao():
         pass
     
     def inserirBanco(self,linhaView):
+        #Transforma o objeto em string Json
         formaJson=json.dumps(linhaView.__dict__,ensure_ascii=False)
+
+        #Transforma toda a string em dicionario
         linhaBanco=ast.literal_eval(formaJson)
+
+        #Busca os valores que devem ser diferentes de string e transforma no que realmente são
         for chave, valor in linhaBanco.items():
             if chave=="Código" or chave=="Frota":
                 valor=int(valor)
@@ -19,6 +24,8 @@ class LinhaDao():
             if chave=="Tarifa":
                 valor=round(float(valor,),3)
                 linhaBanco.update({chave:valor})
+                
+        #Inserção no banco
         print("A inserir no Banco...")
         time.sleep(1)
         print(linhaBanco)
