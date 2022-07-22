@@ -1,9 +1,9 @@
 import ast
-import json
+#import json
 import re
 import time
 
-from bson import ObjectId
+#from bson import ObjectId
 from empresa import Empresa
 from conexao import *
 
@@ -31,9 +31,9 @@ class EmpresaDao():
         resultado=colecaoEmpresas.insert_one(empresaBanco)
         return(resultado.inserted_id)
             
-    def consultarEmpresaBanco_Por_Id(Id_Empresa):
-        resultado=colecaoEmpresas.find_one({"_id": ObjectId(Id_Empresa)})
-        return resultado
+#    def consultarEmpresaBanco_Por_Id(Id_Empresa):
+#        resultado=colecaoEmpresas.find_one({"_id": ObjectId(Id_Empresa)})
+#        return resultado
 
     def consultarEmpresaBanco_Por_Nome(self,nome):
         nome= re.compile(".*{}.*" .format(nome),re.IGNORECASE)

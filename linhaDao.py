@@ -2,6 +2,7 @@
 import ast
 import json
 import time
+import bson
 from bson import objectid
 from linha import Linha
 from conexao import *
