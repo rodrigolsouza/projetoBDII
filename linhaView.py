@@ -20,8 +20,9 @@ class LinhaView:
         if len(codigo)!=0 and len(nome)!=0 and len(tarifa)!=0 and len(frota)!=0 and len(integração)!=0 and len(arCondicionado)!=0:
             linha= Linha(codigo,nome,tarifa,frota,integração,arCondicionado)
             linhaDao=LinhaDao()
-            linhaDao.inserirBanco(linha)
-            time.sleep(1)
+            resultado=linhaDao.inserirBanco(linha)
+            print("Linha inserida com sucesso!")
+            return(resultado)
         else:
             print("Todos os campos precisam ser preenchidos! Por favor refaça a operação.")
             

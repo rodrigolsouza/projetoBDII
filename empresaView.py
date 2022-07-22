@@ -6,8 +6,6 @@ class EmpresaView():
         pass
 
     def inserirEmpresa():
-        pass
-    def inserirEmpresa():
         print("Digite os dados da sua Empresa de transportes")
         cnpj=input("CNPJ: ")
         nome=input("NOME: ")
@@ -19,8 +17,24 @@ class EmpresaView():
 
         if len(cnpj)!=0 and len(nome)!=0 and len(inicioOperação)!=0 and len(frotaTotal)!=0 and len(contato)!=0 and len(frotaArCondicionado)!=0:
             empresa=Empresa(cnpj,nome,inicioOperação,frotaTotal,contato,frotaArCondicionado)
+            print("A inserir no Banco...")
             empresaDao=EmpresaDao()
-            empresaDao.inserirBanco(empresa)
+            resultado=empresaDao.inserirBanco(empresa)
+            print("Empresa inserida com sucesso!")
+            return("Empresa ID: {}" .format(resultado))
         else:
             print("Todos os campos precisam ser preenchidos! Por favor refaça a operação.")
 
+    def montar_Dicionario(documento):
+        return("{ " +"Cnpj: {} ".format(documento.get("Cnpj")), "Nome: {} ".format(documento.get("Nome")), "InicioOperação: {}" .format(documento.get("InicioOperação")),"FrotaTotal: {}" .format(documento.get("FrotaTotal")) , "Contato: {}" .format(documento.get("Contato")) , "FrotaArCondicioado: {}" .format(documento.get("FrotaArCondicioado"))+" }")
+        
+
+    def consultarEmpresa_Por_Nome():
+        nome=input("digite o nome da Empresa")
+        empresaDao=EmpresaDao()
+        resultado=empresaDao.consultarEmpresaBanco_Por_Nome(nome)
+        if resultado:
+            for empr in resultado:
+                return EmpresaView.montar_Dicionario(empr)
+        else:
+                return resultado

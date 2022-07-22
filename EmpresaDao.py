@@ -1,6 +1,9 @@
 import ast
 import json
+import re
 import time
+
+from bson import ObjectId
 from empresa import Empresa
 from conexao import *
 
@@ -9,6 +12,7 @@ class EmpresaDao():
         pass
 
     def inserirBanco(self,empresaView):
+
         #Transforma o objeto em string Json
         formaJson=json.dumps(empresaView.__dict__,ensure_ascii=False)
 
@@ -22,14 +26,24 @@ class EmpresaDao():
                 empresaBanco.update({chave:valor})
 
         #Inserção no banco
-        print("A inserir no Banco...")
         time.sleep(1)
         print(empresaBanco)
-        colecaoEmpresas.insert_one(empresaBanco)
-        print("Empresa inserida com sucesso!")
+        resultado=colecaoEmpresas.insert_one(empresaBanco)
+        return(resultado.inserted_id)
             
-    def consultarBanco():
-        pass
+    def consultarEmpresaBanco_Por_Id(Id_Empresa):
+        resultado=colecaoEmpresas.find_one({"_id": ObjectId(Id_Empresa)})
+        return resultado
+
+    def consultarEmpresaBanco_Por_Nome(self,nome):
+        nome= re.compile(".*{}.*" .format(nome),re.IGNORECASE)
+        resultado=colecaoEmpresas.find({"Nome": nome})
+        if resultado:
+            return resultado
+        else:
+            return None
+
+
     def alterarBanco():
         pass
     def excluirBanco():

@@ -16,7 +16,7 @@ def menu_inicial():
 
 def exibir_menu_inicial():
     while True:
-        try:
+        #try:
             menu_inicial()
             time.sleep(1)
             resposta = int(input("Digite a opção desejada"))
@@ -29,9 +29,9 @@ def exibir_menu_inicial():
             elif resposta == 3:
                 print("Obrigado e volte sempre!")
                 break
-        except:
-            print("opção inválida, digite apenas números")
-            break
+        #except:
+            #print("opção inválida, digite apenas números")
+            #break
 
 
 def menu_Empresas():
@@ -47,14 +47,16 @@ def menu_Empresas():
 
 def exibir_menu_Empresas():
     while True:
-        try:
+        #try:
             menu_Empresas()
             time.sleep(1)
             opção=int(input("Digite sua escolha: \n"))
             if opção==1:
-                EmpresaView.inserirEmpresa()
+                resultado=EmpresaView.inserirEmpresa()
+                print(resultado)
             elif opção==2:
-                EmpresaView.consultar()
+                resultado=EmpresaView.consultarEmpresa_Por_Nome()
+                print(resultado)
             elif opção==3:
                 EmpresaView.alterar()
             elif opção==4:
@@ -65,9 +67,9 @@ def exibir_menu_Empresas():
             elif opção==6:
                 print("Obrigado por utilizar nosssos serviços!")
                 break
-        except:
-            print("opção inválida, digite apenas números")
-            break
+        #except:
+            #print("opção inválida, digite apenas números")
+            #break
 
 
 def menu_Linhas():
@@ -83,7 +85,7 @@ def menu_Linhas():
 
 def exibir_menu_Linhas():
     while True:
-        try:
+        #try:
             menu_Linhas()
             time.sleep(1)
             opção=int(input("Digite sua escolha: \n"))
@@ -101,6 +103,6 @@ def exibir_menu_Linhas():
             elif opção==6:
                 print("Obrigado por utilizar nosssos serviços!")
                 break
-        except:
-            print("opção inválida, digite apenas números")
-            break
+        #except:
+            #print("opção inválida, digite apenas números")
+            #break

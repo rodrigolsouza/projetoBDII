@@ -2,6 +2,7 @@
 import ast
 import json
 import time
+from bson import objectid
 from linha import Linha
 from conexao import *
 
@@ -29,8 +30,8 @@ class LinhaDao():
         print("A inserir no Banco...")
         time.sleep(1)
         print(linhaBanco)
-        colecaoLinhas.insert_one(linhaBanco)
-        print("Linha inserida com sucesso!")
+        resultado=colecaoLinhas.insert_one(linhaBanco)
+        print("Linha ID: {}" .format(resultado.inserted_id))
 
     def consultar(self):
         pass
