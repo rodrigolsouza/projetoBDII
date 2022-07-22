@@ -29,6 +29,9 @@ class EmpresaView():
         return("{ " +"Cnpj: {} ".format(documento.get("Cnpj")), "Nome: {} ".format(documento.get("Nome")), "InicioOperação: {}" .format(documento.get("InicioOperação")),"FrotaTotal: {}" .format(documento.get("FrotaTotal")) , "Contato: {}" .format(documento.get("Contato")) , "FrotaArCondicioado: {}" .format(documento.get("FrotaArCondicioado"))+" }")
         
 
+    def montar_Dicionario2(documento):
+        return("{ " +"Cnpj: {} ".format(documento.get("Cnpj")), "Nome: {} ".format(documento.get("Nome")), "InicioOperação: {}" .format(documento.get("InicioOperação")),"FrotaTotal: {}" .format(documento.get("FrotaTotal")) , "Contato: {}" .format(documento.get("Contato")) , "FrotaArCondicioado: {}" .format(documento.get("FrotaArCondicioado")) , "Empresa Operadora: {}" .format(documento.get("empresaOperadora")), "Código: {}" .format(documento.get("Código")) +" }")
+    
     def consultarEmpresa_Por_Nome():
         nome=input("digite o nome da Empresa")
         empresaDao=EmpresaDao()
@@ -38,3 +41,9 @@ class EmpresaView():
                 return EmpresaView.montar_Dicionario(empr)
         else:
                 return resultado
+
+    def consultarTudo():
+        resultado=EmpresaDao.consultar_EmpresasLinhas()
+        for empr in resultado:
+            resul=EmpresaView.montar_Dicionario2(empr)
+            print(empr)

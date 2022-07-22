@@ -43,6 +43,18 @@ class EmpresaDao():
         else:
             return None
 
+    def consultar_EmpresasLinhas():
+        resultado=cliente['Gestao_transportes']['Empresas'].aggregate([
+            {
+                '$lookup':{
+                    'from': 'Linhas',
+                    'localField': 'Nome',
+                    'foreignField': 'empresaOperadora',
+                    'as': 'juncao'
+                }
+            }
+        ])
+        return resultado
 
     def alterarBanco():
         pass

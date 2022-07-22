@@ -1,11 +1,12 @@
 class Linha:
-    def __init__(self,codigo,nome,tarifa,frota,integração,arCondicionado):
+    def __init__(self,codigo,nome,tarifa,frota,integração,arCondicionado,empresaOperadora):
         self.Código= codigo
         self.Nome= nome
         self.Tarifa= tarifa
         self.Frota= frota
         self.Integração=integração
         self.ArCondicionado=arCondicionado
+        self.empresaOperadora=empresaOperadora
     
     def get_codigo(self):
         return self.Código

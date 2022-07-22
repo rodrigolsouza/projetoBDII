@@ -58,7 +58,8 @@ def exibir_menu_Empresas():
                 resultado=EmpresaView.consultarEmpresa_Por_Nome()
                 print(resultado)
             elif opção==3:
-                EmpresaView.alterar()
+                resultado=EmpresaView.consultarTudo()
+                print(resultado)
             elif opção==4:
                 EmpresaView.excluir()
             elif opção==5:
