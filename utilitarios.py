@@ -19,7 +19,7 @@ def exibir_menu_inicial():
         #try:
             menu_inicial()
             time.sleep(1)
-            resposta = int(input("Digite a opção desejada"))
+            resposta = int(input("Digite a opção desejada: "))
             if resposta == 1:
                 exibir_menu_Empresas()
                 break

@@ -12,7 +12,7 @@ class EmpresaView():
         inicioOperação=input("INÍCIO DA OPERAÇÃO: ")
         frotaTotal=input("FROTA TOTAL: ")
         contato=input("CONTATO: ")
-        frotaArCondicionado=input("FROTA COM AR CONDICIONADO: ")
+        frotaArCondicionado=input("FROTA COM AR-CONDICIONADO: ")
         print("\n")
 
         if len(cnpj)!=0 and len(nome)!=0 and len(inicioOperação)!=0 and len(frotaTotal)!=0 and len(contato)!=0 and len(frotaArCondicionado)!=0:
@@ -27,18 +27,33 @@ class EmpresaView():
 
     def montar_Dicionario(documento):
         return("{ " +"Cnpj: {} ".format(documento.get("Cnpj")), "Nome: {} ".format(documento.get("Nome")), "InicioOperação: {}" .format(documento.get("InicioOperação")),"FrotaTotal: {}" .format(documento.get("FrotaTotal")) , "Contato: {}" .format(documento.get("Contato")) , "FrotaArCondicioado: {}" .format(documento.get("FrotaArCondicioado"))+" }")
-        
+        #return("CNPJ: {}".format(documento.get("Cnpj")))
 
     def montar_Dicionario2(documento):
         return("{ " +"Cnpj: {} ".format(documento.get("Cnpj")), "Nome: {} ".format(documento.get("Nome")), "InicioOperação: {}" .format(documento.get("InicioOperação")),"FrotaTotal: {}" .format(documento.get("FrotaTotal")) , "Contato: {}" .format(documento.get("Contato")) , "FrotaArCondicioado: {}" .format(documento.get("FrotaArCondicioado")) , "Empresa Operadora: {}" .format(documento.get("empresaOperadora")), "Código: {}" .format(documento.get("Código")) +" }")
     
+    def showEmpresa(documento):
+        print("\n")
+        print("******** CONSULTA EFETUADA COM SUCESSO! *********")
+        print("\n*************************************************")
+        print("CNPJ: ", documento.get("Cnpj"))
+        print("NOME: ", documento.get("Nome"))
+        print("CONTATO: ", documento.get("Contato"))
+        print("INÍCIO DA OPERAÇÃO: ", documento.get("InicioOperação"))
+        print("FROTA TOTAL: ", documento.get("FrotaTotal"))
+        print("FROTA COM AR-CONDICIONADO: ", documento.get("FrotaArCondicioado"))
+        print("\n*************************************************")
+        
+
     def consultarEmpresa_Por_Nome():
-        nome=input("digite o nome da Empresa")
+        nome=input("Digite o nome da empresa: ")
         empresaDao=EmpresaDao()
         resultado=empresaDao.consultarEmpresaBanco_Por_Nome(nome)
+        
         if resultado:
             for empr in resultado:
-                return EmpresaView.montar_Dicionario(empr)
+                #return EmpresaView.montar_Dicionario(empr)
+                return EmpresaView.showEmpresa(empr)
         else:
                 return resultado
 
