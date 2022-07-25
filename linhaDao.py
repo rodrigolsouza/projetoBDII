@@ -2,6 +2,7 @@
 import ast
 import json
 import time
+import re
 # import bson
 # from bson import objectid
 from linha import Linha
@@ -34,8 +35,14 @@ class LinhaDao():
         resultado=colecaoLinhas.insert_one(linhaBanco)
         print("Linha ID: {}" .format(resultado.inserted_id))
 
-    def consultar(self):
-        pass
+    def consultar(self,nome):
+        nome= re.compile(".*{}.*" .format(nome),re.IGNORECASE)
+        resultado=colecaoLinhas.find({"Nome": nome})
+        if resultado:
+            return resultado
+        else:
+            return None
+
     def alterar(self):
         pass
     def excluir(self):

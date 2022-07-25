@@ -93,7 +93,9 @@ def exibir_menu_Linhas():
             if opção==1:
                 LinhaView.inserirLinha()
             elif opção==2:
-                LinhaView.consultar()
+               # LinhaView.consultar()
+                resultado=LinhaView.consultarLinha_Por_Nome()
+                print(resultado)
             elif opção==3:
                 LinhaView.alterar()
             elif opção==4:
