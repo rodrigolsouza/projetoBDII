@@ -1,7 +1,9 @@
 import time
 from linha import Linha
 from linhaDao import LinhaDao
-
+from empresa import Empresa
+from empresaDao import EmpresaDao
+from conexao import *
 
 class LinhaView:
     def __init__(self):
@@ -26,11 +28,25 @@ class LinhaView:
             return(resultado)
         else:
             print("Todos os campos precisam ser preenchidos! Por favor refaça a operação.")
-            
+        
+    def consultarLinha_Por_Nome():
+        nome=input("Busque uma linha de Ônibus: ")
+        linhaDao=LinhaDao()
+        resultado=linhaDao.consultar(nome)
+        print("\n")
+        print("********LINHA(S) ENCONTRADA(S)! *********")
+        
+        if resultado:
+            for empr in resultado:
+                #return LinhaView.showLinha(empr)
+                time.sleep(1)
+                print(LinhaView.showLinha(empr))
+                time.sleep(1)
+        else:
+                print("Linha não encontrada!")
+        
     def showLinha(documento):
         
-        print("\n")
-        print("********LINHA ENCONTRADA! *********")
         print("\n*************************************************")
         print("CÓDIGO: ", documento.get("Código"))
         print("NOME: ", documento.get("Nome"))
@@ -40,18 +56,24 @@ class LinhaView:
         print("A LINHA POSSUI VÉICULO COM AR-CONDICIONADO?: ", documento.get("ArCondicionado"))
         print("EMPRESA OPERADORA : ", documento.get("empresaOperadora"))
         print("\n*************************************************")
-        
 
-    def consultarLinha_Por_Nome():
-        nome=input("Busque uma linha de Ônibus: ")
-        linhaDao=LinhaDao()
-        resultado=linhaDao.consultar(nome)
-        
+    def showLinha_comArCondicionado(documento):
+
+        print("\n*************************************************")
+        print(documento.get("Código"),"\t",documento.get("Nome"))
+        print("\n*************************************************")
+
+    def consultar_LinhascomArCondicionado():
+
+        linhaDao = LinhaDao()
+        resultado = linhaDao.linhasClimatizadas()
+        print("\n")
+        print("********LINHA(S) QUE POSSUEM AR-CONDICIONADO! *********")
+
         if resultado:
             for empr in resultado:
-                #return LinhaView.showLinha(empr)
-                print(LinhaView.showLinha(empr))
+                time.sleep(1)
+                print(LinhaView.showLinha_comArCondicionado(empr))
+                time.sleep(1)
         else:
-                print("Linha não encontrada!")
-        
-
+                print("Nenhuma linha não encontrada!")        

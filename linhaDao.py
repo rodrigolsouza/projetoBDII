@@ -43,7 +43,12 @@ class LinhaDao():
         else:
             return None
 
-    def alterar(self):
-        pass
+    def linhasClimatizadas(self):
+        resultado=colecaoLinhas.find({"ArCondicionado": "SIM"})
+        if resultado:
+            return resultado
+        else:
+            return None
+            
     def excluir(self):
         pass

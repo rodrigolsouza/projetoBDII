@@ -77,8 +77,8 @@ def menu_Linhas():
     time.sleep(1)
     print("\n")
     print("---------------MENU-----------------")
-    menudeopções = ["Cadastrar nova Linha", "Consultar Linhas",
-                    "Alterar dados da Linha", "Excluir Linha", "Voltar" ,"Sair"]
+    menudeopções = ["Cadastrar Nova Linha", "Consultar Linhas",
+                    "Consultar Linhas Com Ar-Condicionado", "Excluir Linha", "Voltar" ,"Sair"]
     for numero, opção in enumerate(menudeopções):
         print(numero+1, "-", opção)
     print("------------------------------------")
@@ -97,7 +97,9 @@ def exibir_menu_Linhas():
                 resultado=LinhaView.consultarLinha_Por_Nome()
                 print(resultado)
             elif opção==3:
-                LinhaView.alterar()
+                #LinhaView.alterar()
+                resultado=LinhaView.consultar_LinhascomArCondicionado()
+                print(resultado)
             elif opção==4:
                 LinhaView.excluir()
             elif opção==5:
