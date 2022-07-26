@@ -8,3 +8,5 @@ conectar()
 #Exibição do Menu de atividades operacionais
 
 exibir_menu_inicial()
+
+#!!!!!!!FALTA REMOVER AS PARTES DE CÓDIGO (OU OS SIMBOLOS DE COMENTARIOS) QUE ESTÃO COM COMENTARIOS!!!!

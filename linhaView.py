@@ -11,13 +11,13 @@ class LinhaView:
     
     def inserirLinha():
         print("Digite os dados da sua linha de transportes")
-        codigo=input("CÓDIGO: ")
-        nome=input("NOME: ")
-        tarifa=input("TARIFA: ")
-        frota=input("FROTA: ")
-        integração=input("INTEGRAÇÃO? ")
-        arCondicionado=input("AR-CONDICIONADO? ")
-        empresaOperadora=input("EMPERESA OPERADORA: ")
+        codigo=input("CÓDIGO: ").upper()
+        nome=input("NOME: ").upper()
+        tarifa=input("TARIFA: ").upper()
+        frota=input("FROTA: ").upper()
+        integração=input("INTEGRAÇÃO? ").upper()
+        arCondicionado=input("AR-CONDICIONADO? ").upper()
+        empresaOperadora=input("EMPERESA OPERADORA: ").upper()
         print("\n")
 
         if len(codigo)!=0 and len(nome)!=0 and len(tarifa)!=0 and len(frota)!=0 and len(integração)!=0 and len(arCondicionado)!=0:

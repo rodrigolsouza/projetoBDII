@@ -38,8 +38,8 @@ def menu_Empresas():
     time.sleep(1)
     print("\n")
     print("---------------MENU-----------------")
-    menudeopções = ["Cadastrar nova Empresa", "Consultar Empresas",
-                    "Alterar dados de alguma Empresa", "Excluir Empresa", "Voltar", "Sair"]
+    menudeopções = ["Cadastrar nova Empresa", "Consultar dados sobre uma empresa de transportes",
+                    "Exibir tudo", "Excluir Empresa", "Voltar", "Sair"]
     for numero, opção in enumerate(menudeopções):
         print(numero+1, "-", opção)
     print("------------------------------------")
@@ -77,7 +77,7 @@ def menu_Linhas():
     time.sleep(1)
     print("\n")
     print("---------------MENU-----------------")
-    menudeopções = ["Cadastrar Nova Linha", "Consultar Linhas",
+    menudeopções = ["Cadastrar Nova Linha", "Consultar infomações sobre uma linha de Ônibus",
                     "Consultar Linhas Com Ar-Condicionado", "Excluir Linha", "Voltar" ,"Sair"]
     for numero, opção in enumerate(menudeopções):
         print(numero+1, "-", opção)
