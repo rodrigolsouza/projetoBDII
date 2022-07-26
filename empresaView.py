@@ -46,7 +46,7 @@ class EmpresaView():
         
 
     def consultarEmpresa_Por_Nome():
-        nome=input("Digite o nome da empresa: ")
+        nome=input("Digite o nome da empresa: ").upper()
         empresaDao=EmpresaDao()
         resultado=empresaDao.consultarEmpresaBanco_Por_Nome(nome)
         

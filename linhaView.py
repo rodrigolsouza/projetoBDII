@@ -30,7 +30,7 @@ class LinhaView:
             print("Todos os campos precisam ser preenchidos! Por favor refaça a operação.")
         
     def consultarLinha_Por_Nome():
-        nome=input("Busque uma linha de Ônibus: ")
+        nome=input("Busque uma linha de Ônibus: ").upper()
         linhaDao=LinhaDao()
         resultado=linhaDao.consultar(nome)
         print("\n")
