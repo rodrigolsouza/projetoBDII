@@ -38,17 +38,9 @@ class LinhaDao():
     def consultar(self,nome):
         nome= re.compile(".*{}.*" .format(nome),re.IGNORECASE)
         resultado=colecaoLinhas.find({"Nome": nome})
-        if resultado:
-            return resultado
-        else:
-            return None
+        return resultado
 
     def linhasClimatizadas(self):
         resultado=colecaoLinhas.find({"ArCondicionado": "SIM"})
-        if resultado:
-            return resultado
-        else:
-            return None
+        return resultado
             
-    def excluir(self):
-        pass

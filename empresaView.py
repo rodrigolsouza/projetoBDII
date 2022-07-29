@@ -1,5 +1,6 @@
 from empresa import Empresa
 from empresaDao import EmpresaDao
+from linhaView import LinhaView
 
 class EmpresaView():
     def __init__(self):
@@ -52,13 +53,23 @@ class EmpresaView():
         
         if resultado:
             for empr in resultado:
-                #return EmpresaView.montar_Dicionario(empr)
                 return EmpresaView.showEmpresa(empr)
         else:
-                return resultado
+                return "Empresa não localizada"
 
     def consultarTudo():
         resultado=EmpresaDao.consultar_EmpresasLinhas()
         for empr in resultado:
-            resul=EmpresaView.montar_Dicionario2(empr)
-            print(empr)
+            EmpresaView.showEmpresa(empr)
+            for linha in empr['juncao']:
+                LinhaView.showLinha_comArCondicionado(linha)
+
+            # #Testes
+            # # print(empr)
+            # print('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+            # if empr =='juncao':
+            #     for lin in juncao:
+                    
+            #         # resul=LinhaView.showLinha(lin)
+            #         print(lin['Cnpj'])
+            

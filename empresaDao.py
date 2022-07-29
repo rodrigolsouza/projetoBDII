@@ -38,10 +38,7 @@ class EmpresaDao():
     def consultarEmpresaBanco_Por_Nome(self,nome):
         nome= re.compile(".*{}.*" .format(nome),re.IGNORECASE)
         resultado=colecaoEmpresas.find({"Nome": nome})
-        if resultado:
-            return resultado
-        else:
-            return None
+        return resultado
 
     def consultar_EmpresasLinhas():
         resultado=cliente['Gestao_transportes']['Empresas'].aggregate([
@@ -55,8 +52,3 @@ class EmpresaDao():
             }
         ])
         return resultado
-
-    def alterarBanco():
-        pass
-    def excluirBanco():
-        pass

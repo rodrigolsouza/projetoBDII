@@ -73,7 +73,7 @@ class LinhaView:
         if resultado:
             for empr in resultado:
                 time.sleep(1)
-                print(LinhaView.showLinha_comArCondicionado(empr))
+                LinhaView.showLinha_comArCondicionado(empr)
                 time.sleep(1)
         else:
-                print("Nenhuma linha não encontrada!")        
+                print("Nenhuma linha encontrada!")        

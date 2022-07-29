@@ -21,7 +21,8 @@ def conectar():
         print("Conectado com sucesso! \n")
         #Teste para comprovar que o cluster está funcionando
         time.sleep(1)
-        print("list_database_names: ", cliente.list_database_names())
+        #print("list_database_names: ", cliente.list_database_names())
+        print("Bem-vindo ao Gestor de Transportes")
         
     #Mensagem de erro caso a conexão falhe
     except pymongo.errors.ConnectionFailure as errorConexion:

@@ -39,7 +39,7 @@ def menu_Empresas():
     print("\n")
     print("---------------MENU-----------------")
     menudeopções = ["Cadastrar nova Empresa", "Consultar dados sobre uma empresa de transportes",
-                    "Exibir tudo", "Excluir Empresa", "Voltar", "Sair"]
+                    "Exibir tudo", "Voltar", "Sair"]
     for numero, opção in enumerate(menudeopções):
         print(numero+1, "-", opção)
     print("------------------------------------")
@@ -56,7 +56,6 @@ def exibir_menu_Empresas():
                 print(resultado)
             elif opção==2:
                 resultado=EmpresaView.consultarEmpresa_Por_Nome()
-                print(resultado)
             elif opção==3:
                 resultado=EmpresaView.consultarTudo()
                 print(resultado)
@@ -78,7 +77,7 @@ def menu_Linhas():
     print("\n")
     print("---------------MENU-----------------")
     menudeopções = ["Cadastrar Nova Linha", "Consultar infomações sobre uma linha de Ônibus",
-                    "Consultar Linhas Com Ar-Condicionado", "Excluir Linha", "Voltar" ,"Sair"]
+                    "Consultar Linhas Com Ar-Condicionado", "Voltar" ,"Sair"]
     for numero, opção in enumerate(menudeopções):
         print(numero+1, "-", opção)
     print("------------------------------------")
@@ -93,13 +92,11 @@ def exibir_menu_Linhas():
             if opção==1:
                 LinhaView.inserirLinha()
             elif opção==2:
-               # LinhaView.consultar()
                 resultado=LinhaView.consultarLinha_Por_Nome()
-                print(resultado)
+                
             elif opção==3:
-                #LinhaView.alterar()
                 resultado=LinhaView.consultar_LinhascomArCondicionado()
-                print(resultado)
+                
             elif opção==4:
                 LinhaView.excluir()
             elif opção==5:
