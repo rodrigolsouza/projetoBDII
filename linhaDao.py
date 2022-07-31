@@ -37,7 +37,7 @@ class LinhaDao():
 
     def consultar(self,nome):
         nome= re.compile(".*{}.*" .format(nome),re.IGNORECASE)
-        resultado=colecaoLinhas.find({"Nome": nome})
+        resultado=colecaoLinhas.find({"Nome": nome}).sort("Código")
         return resultado
 
     def linhasClimatizadas(self):

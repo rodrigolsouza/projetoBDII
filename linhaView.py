@@ -40,7 +40,7 @@ class LinhaView:
             for empr in resultado:
                 #return LinhaView.showLinha(empr)
                 time.sleep(1)
-                print(LinhaView.showLinha(empr))
+                LinhaView.showLinha(empr)
                 time.sleep(1)
         else:
                 print("Linha não encontrada!")

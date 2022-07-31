@@ -60,13 +60,12 @@ def exibir_menu_Empresas():
                 resultado=EmpresaView.consultarTudo()
                 print(resultado)
             elif opção==4:
-                EmpresaView.excluir()
-            elif opção==5:
                 exibir_menu_inicial()
                 break
-            elif opção==6:
+            elif opção==5:
                 print("Obrigado por utilizar nosssos serviços!")
                 break
+                
         #except:
             #print("opção inválida, digite apenas números")
             #break
@@ -98,13 +97,10 @@ def exibir_menu_Linhas():
                 resultado=LinhaView.consultar_LinhascomArCondicionado()
                 
             elif opção==4:
-                LinhaView.excluir()
-            elif opção==5:
                 exibir_menu_inicial()
-                break
-            elif opção==6:
+            elif opção==5:
                 print("Obrigado por utilizar nosssos serviços!")
-                break
+                break          
         #except:
             #print("opção inválida, digite apenas números")
             #break
