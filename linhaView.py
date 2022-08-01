@@ -38,7 +38,6 @@ class LinhaView:
         
         if resultado:
             for empr in resultado:
-                #return LinhaView.showLinha(empr)
                 time.sleep(1)
                 LinhaView.showLinha(empr)
                 time.sleep(1)
@@ -59,7 +58,7 @@ class LinhaView:
 
     def showLinha_comArCondicionado(documento):
 
-        print("\n*************************************************")
+        print("\n")
         print(documento.get("Código"),"\t",documento.get("Nome"))
         print("\n*************************************************")
 
@@ -68,7 +67,7 @@ class LinhaView:
         linhaDao = LinhaDao()
         resultado = linhaDao.linhasClimatizadas()
         print("\n")
-        print("********LINHA(S) QUE POSSUEM AR-CONDICIONADO! *********")
+        print("********LINHA(S) QUE POSSUEM AR-CONDICIONADO! ***")
 
         if resultado:
             for empr in resultado:

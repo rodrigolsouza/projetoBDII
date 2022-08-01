@@ -16,7 +16,7 @@ def menu_inicial():
 
 def exibir_menu_inicial():
     while True:
-        #try:
+        try:
             menu_inicial()
             time.sleep(1)
             resposta = int(input("Digite a opção desejada: "))
@@ -29,9 +29,9 @@ def exibir_menu_inicial():
             elif resposta == 3:
                 print("Obrigado e volte sempre!")
                 break
-        #except:
-            #print("opção inválida, digite apenas números")
-            #break
+        except:
+                print("Opção Inválida, Escolha uma opção entre 1 e 3!")
+        break
 
 
 def menu_Empresas():
@@ -47,7 +47,7 @@ def menu_Empresas():
 
 def exibir_menu_Empresas():
     while True:
-        #try:
+        try:
             menu_Empresas()
             time.sleep(1)
             opção=int(input("Digite sua escolha: \n"))
@@ -66,9 +66,9 @@ def exibir_menu_Empresas():
                 print("Obrigado por utilizar nosssos serviços!")
                 break
                 
-        #except:
-            #print("opção inválida, digite apenas números")
-            #break
+        except:
+                print("Opção Inválida, Escolha uma opção entre 1 e 5!")
+        break
 
 
 def menu_Linhas():
@@ -84,7 +84,7 @@ def menu_Linhas():
 
 def exibir_menu_Linhas():
     while True:
-        #try:
+        try:
             menu_Linhas()
             time.sleep(1)
             opção=int(input("Digite sua escolha: \n"))
@@ -101,6 +101,7 @@ def exibir_menu_Linhas():
             elif opção==5:
                 print("Obrigado por utilizar nosssos serviços!")
                 break          
-        #except:
-            #print("opção inválida, digite apenas números")
-            #break
+            
+        except:
+                print("Opção Inválida, Escolha uma opção entre 1 e 5!")
+        break

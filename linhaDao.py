@@ -31,9 +31,7 @@ class LinhaDao():
         #Inserção no banco
         print("A inserir no Banco...")
         time.sleep(1)
-        print(linhaBanco)
         resultado=colecaoLinhas.insert_one(linhaBanco)
-        print("Linha ID: {}" .format(resultado.inserted_id))
 
     def consultar(self,nome):
         nome= re.compile(".*{}.*" .format(nome),re.IGNORECASE)
@@ -41,6 +39,6 @@ class LinhaDao():
         return resultado
 
     def linhasClimatizadas(self):
-        resultado=colecaoLinhas.find({"ArCondicionado": "SIM"})
+        resultado=colecaoLinhas.find({"ArCondicionado": "SIM"}).sort("Código")
         return resultado
             

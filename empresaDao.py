@@ -30,10 +30,6 @@ class EmpresaDao():
         print(empresaBanco)
         resultado=colecaoEmpresas.insert_one(empresaBanco)
         return(resultado.inserted_id)
-            
-#    def consultarEmpresaBanco_Por_Id(Id_Empresa):
-#        resultado=colecaoEmpresas.find_one({"_id": ObjectId(Id_Empresa)})
-#        return resultado
 
     def consultarEmpresaBanco_Por_Nome(self,nome):
         nome= re.compile(".*{}.*" .format(nome),re.IGNORECASE)
