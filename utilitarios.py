@@ -54,8 +54,10 @@ def exibir_menu_Empresas():
             if opção==1:
                 resultado=EmpresaView.inserirEmpresa()
                 print(resultado)
+                exibir_menu_inicial()
             elif opção==2:
                 resultado=EmpresaView.consultarEmpresa_Por_Nome()
+                exibir_menu_inicial()
             elif opção==3:
                 EmpresaView.consultarTudo()
                 exibir_menu_inicial()
@@ -90,12 +92,13 @@ def exibir_menu_Linhas():
             opção=int(input("Digite sua escolha: \n"))
             if opção==1:
                 LinhaView.inserirLinha()
+                exibir_menu_inicial()
             elif opção==2:
                 resultado=LinhaView.consultarLinha_Por_Nome()
-                
+                exibir_menu_inicial()
             elif opção==3:
                 resultado=LinhaView.consultar_LinhascomArCondicionado()
-                
+                exibir_menu_inicial()
             elif opção==4:
                 exibir_menu_inicial()
             elif opção==5:
