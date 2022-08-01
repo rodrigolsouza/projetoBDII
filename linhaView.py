@@ -34,7 +34,7 @@ class LinhaView:
         linhaDao=LinhaDao()
         resultado=linhaDao.consultar(nome)
         print("\n")
-        print("********LINHA(S) ENCONTRADA(S)! *********")
+        #print("********LINHA(S) ENCONTRADA(S)! *********")
         
         if resultado:
             for empr in resultado:
@@ -56,12 +56,6 @@ class LinhaView:
         print("EMPRESA OPERADORA : ", documento.get("empresaOperadora"))
         print("\n*************************************************")
 
-    def showLinha_comArCondicionado(documento):
-
-        print("\n")
-        print(documento.get("Código"),"\t",documento.get("Nome"))
-        print("\n*************************************************")
-
     def consultar_LinhascomArCondicionado():
 
         linhaDao = LinhaDao()
@@ -76,3 +70,8 @@ class LinhaView:
                 time.sleep(1)
         else:
                 print("Nenhuma linha encontrada!")        
+
+    def showLinha_comArCondicionado(documento):
+        
+        print("\n")
+        print(documento.get("Código"),"\t",documento.get("Nome"))            

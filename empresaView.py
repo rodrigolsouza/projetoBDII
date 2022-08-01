@@ -1,3 +1,4 @@
+import time
 from empresa import Empresa
 from empresaDao import EmpresaDao
 from linhaView import LinhaView
@@ -52,24 +53,29 @@ class EmpresaView():
         resultado=empresaDao.consultarEmpresaBanco_Por_Nome(nome)
         
         if resultado:
+            time.sleep(1)
             for empr in resultado:
                 return EmpresaView.showEmpresa(empr)
+            time.sleep(1)
         else:
                 return "Empresa não localizada"
 
     def consultarTudo():
         resultado=EmpresaDao.consultar_EmpresasLinhas()
+        print("\n")
+        print("**** CONFIRA LINHAS E EMPRESAS CADASTRADAS! *****")
         for empr in resultado:
-            EmpresaView.showEmpresa(empr)
+            time.sleep(1)
+            EmpresaView.showTudo1(empr)
+            time.sleep(1)
             for linha in empr['juncao']:
                 LinhaView.showLinha_comArCondicionado(linha)
-
-            # #Testes
-            # # print(empr)
-            # print('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-            # if empr =='juncao':
-            #     for lin in juncao:
-                    
-            #         # resul=LinhaView.showLinha(lin)
-            #         print(lin['Cnpj'])
+            time.sleep(1)
             
+
+    def showTudo1(documento):
+        
+        print("\n*************************************************")
+        print("LINHAS OPERADAS PELA A EMPRESA:",documento.get("Nome"))
+        print("SAC: ", documento.get("Contato"))
+       

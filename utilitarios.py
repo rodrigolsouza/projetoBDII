@@ -39,7 +39,7 @@ def menu_Empresas():
     print("\n")
     print("---------------MENU-----------------")
     menudeopções = ["Cadastrar nova Empresa", "Consultar dados sobre uma empresa de transportes",
-                    "Exibir tudo", "Voltar", "Sair"]
+                    "Exibir linhas agrupadas por empresa", "Voltar", "Sair"]
     for numero, opção in enumerate(menudeopções):
         print(numero+1, "-", opção)
     print("------------------------------------")
@@ -57,8 +57,8 @@ def exibir_menu_Empresas():
             elif opção==2:
                 resultado=EmpresaView.consultarEmpresa_Por_Nome()
             elif opção==3:
-                resultado=EmpresaView.consultarTudo()
-                print(resultado)
+                EmpresaView.consultarTudo()
+                exibir_menu_inicial()
             elif opção==4:
                 exibir_menu_inicial()
                 break
