@@ -27,7 +27,7 @@ class EmpresaDao():
 
         #Inserção no banco
         time.sleep(1)
-        print(empresaBanco)
+        print("A inserir no Banco...")
         resultado=colecaoEmpresas.insert_one(empresaBanco)
         return(resultado.inserted_id)
 
