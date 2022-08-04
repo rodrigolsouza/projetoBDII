@@ -53,7 +53,6 @@ def exibir_menu_Empresas():
             opção=int(input("Digite sua escolha: \n"))
             if opção==1:
                 resultado=EmpresaView.inserirEmpresa()
-                print(resultado)
                 exibir_menu_inicial()
             elif opção==2:
                 resultado=EmpresaView.consultarEmpresa_Por_Nome()

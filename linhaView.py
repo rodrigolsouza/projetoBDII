@@ -24,8 +24,11 @@ class LinhaView:
             linha= Linha(codigo,nome,tarifa,frota,integração,arCondicionado,empresaOperadora)
             linhaDao=LinhaDao()
             resultado=linhaDao.inserirBanco(linha)
-            print("Linha inserida com sucesso!")
-            return(resultado)
+            if(resultado):
+                print("Linha inserida com sucesso!")
+            #return(resultado)
+            else:
+                print("Erro no cadastro, tente novamente!")
         else:
             print("Todos os campos precisam ser preenchidos! Por favor refaça a operação.")
         
@@ -34,18 +37,15 @@ class LinhaView:
         linhaDao=LinhaDao()
         resultado=linhaDao.consultar(nome)
         print("\n")
-        #print("********LINHA(S) ENCONTRADA(S)! *********")
-        
         if resultado:
             for empr in resultado:
                 time.sleep(1)
                 LinhaView.showLinha(empr)
                 time.sleep(1)
         else:
-                print("Linha não encontrada!")
+                print("Linha não existente no banco de dados!")
         
     def showLinha(documento):
-        
         print("\n*************************************************")
         print("CÓDIGO: ", documento.get("Código"))
         print("NOME: ", documento.get("Nome"))
@@ -57,7 +57,6 @@ class LinhaView:
         print("\n*************************************************")
 
     def consultar_LinhascomArCondicionado():
-
         linhaDao = LinhaDao()
         resultado = linhaDao.linhasClimatizadas()
         print("\n")
@@ -69,9 +68,8 @@ class LinhaView:
                 LinhaView.showLinha_comArCondicionado(empr)
                 time.sleep(1)
         else:
-                print("Nenhuma linha encontrada!")        
+                print("Nenhuma linha com essa especificação encontrada no banco de dados")        
 
     def showLinha_comArCondicionado(documento):
-        
         print("\n")
         print(documento.get("Código"),"\t",documento.get("Nome"))            

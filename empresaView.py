@@ -19,21 +19,16 @@ class EmpresaView():
 
         if len(cnpj)!=0 and len(nome)!=0 and len(inicioOperação)!=0 and len(frotaTotal)!=0 and len(contato)!=0 and len(frotaArCondicionado)!=0:
             empresa=Empresa(cnpj,nome,inicioOperação,frotaTotal,contato,frotaArCondicionado)
-            print("A inserir no Banco...")
             empresaDao=EmpresaDao()
             resultado=empresaDao.inserirBanco(empresa)
-            print("Empresa inserida com sucesso!")
-            return("Empresa ID: {}" .format(resultado))
+            if (resultado):
+                print("Empresa inserida com sucesso!")
+            #return("Empresa ID: {}" .format(resultado))
+            else:
+                print("Erro no cadastro, tente novamente!")
         else:
             print("Todos os campos precisam ser preenchidos! Por favor refaça a operação.")
 
-    def montar_Dicionario(documento):
-        return("{ " +"Cnpj: {} ".format(documento.get("Cnpj")), "Nome: {} ".format(documento.get("Nome")), "InicioOperação: {}" .format(documento.get("InicioOperação")),"FrotaTotal: {}" .format(documento.get("FrotaTotal")) , "Contato: {}" .format(documento.get("Contato")) , "FrotaArCondicioado: {}" .format(documento.get("FrotaArCondicioado"))+" }")
-        #return("CNPJ: {}".format(documento.get("Cnpj")))
-
-    def montar_Dicionario2(documento):
-        return("{ " +"Cnpj: {} ".format(documento.get("Cnpj")), "Nome: {} ".format(documento.get("Nome")), "InicioOperação: {}" .format(documento.get("InicioOperação")),"FrotaTotal: {}" .format(documento.get("FrotaTotal")) , "Contato: {}" .format(documento.get("Contato")) , "FrotaArCondicioado: {}" .format(documento.get("FrotaArCondicioado")) , "Empresa Operadora: {}" .format(documento.get("empresaOperadora")), "Código: {}" .format(documento.get("Código")) +" }")
-    
     def showEmpresa(documento):
         print("\n")
         print("******** CONSULTA EFETUADA COM SUCESSO! *********")
@@ -58,7 +53,7 @@ class EmpresaView():
                 return EmpresaView.showEmpresa(empr)
             time.sleep(1)
         else:
-                return "Empresa não localizada"
+                return "Empresa não cadastrada no banco de dados"
 
     def consultarTudo():
         resultado=EmpresaDao.consultar_EmpresasLinhas()
@@ -71,6 +66,8 @@ class EmpresaView():
             for linha in empr['juncao']:
                 LinhaView.showLinha_comArCondicionado(linha)
             time.sleep(1)
+        if not resultado:
+            print("Empresa não cadastrada no banco de dados")
             
 
     def showTudo1(documento):

@@ -19,19 +19,11 @@ class LinhaDao():
         #Transforma toda a string em dicionario
         linhaBanco=ast.literal_eval(formaJson)
 
-        #Busca os valores que devem ser diferentes de string e transforma no que realmente são
-        for chave, valor in linhaBanco.items():
-            if chave=="Código" or chave=="Frota":
-                valor=int(valor)
-                linhaBanco.update({chave:valor})
-            if chave=="Tarifa":
-                valor=round(float(valor,),3)
-                linhaBanco.update({chave:valor})
-                
         #Inserção no banco
         print("A inserir no Banco...")
         time.sleep(1)
         resultado=colecaoLinhas.insert_one(linhaBanco)
+        return(resultado.inserted_id)
 
     def consultar(self,nome):
         nome= re.compile(".*{}.*" .format(nome),re.IGNORECASE)

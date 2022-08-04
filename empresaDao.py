@@ -19,12 +19,6 @@ class EmpresaDao():
         #Transforma toda a string em dicionario
         empresaBanco=ast.literal_eval(formaJson)
 
-        #Busca os valores que devem ser diferentes de string e transforma no que realmente são
-        for chave,valor in empresaBanco.items():
-            if chave=="FrotaTotal" or chave=="FrotaArCondicioado":
-                valor=int(valor)
-                empresaBanco.update({chave:valor})
-
         #Inserção no banco
         time.sleep(1)
         print("A inserir no Banco...")
